@@ -1,4 +1,4 @@
-name: Push to master branch
+name: build
 
 on:
   push:
