@@ -6,7 +6,6 @@ profile = "black"
 line_length = 99
 
 [tool.mypy]
-python_version = "3.12"
 exclude = [
     "tests", ".venv"
 ]
