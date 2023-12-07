@@ -3,7 +3,7 @@ from pathlib import Path
 from setuptools import find_packages, setup
 
 BASE_DIR = Path(__file__).parent
-VERSION_FILE = BASE_DIR / "src" / "dayone_to_obsidian" / "version.py"
+VERSION_FILE = BASE_DIR / "dayone_to_obsidian" / "version.py"
 README_FILE = BASE_DIR / "README.md"
 REQUIREMENTS_FILE = BASE_DIR / "requirements.txt"
 
