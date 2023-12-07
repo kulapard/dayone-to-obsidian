@@ -1,0 +1,20 @@
+name: Push to master branch
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+# one running workflow per branch, others will wait
+concurrency: ${{ github.ref }}
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+      - uses: pre-commit/action@v3.0.0
