@@ -43,7 +43,7 @@ jobs:
           key: mypy-${{ hashFiles('requirements*.txt') }}
       - name: Install Dependencies
         if: steps.cache.outputs.cache-hit != 'true'
-        run: pip install -r requirements.txt -r requirements-dev.txt
+        run: pip install -r requirements-dev.txt
       - name: Run mypy
         run: make mypy
 
@@ -68,7 +68,7 @@ jobs:
           key: python-${{ runner.os }}-${{ env.pythonLocation }}-${{ hashFiles('requirements*.txt') }}
       - name: Install Dependencies
         if: steps.cache.outputs.cache-hit != 'true'
-        run: pip install -r requirements.txt -r requirements-dev.txt
+        run: pip install -r requirements-dev.txt
 
       - name: Run tests
         run: make test
