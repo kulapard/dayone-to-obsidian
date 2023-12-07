@@ -38,3 +38,5 @@ requirements:
 	@pip-compile --resolver=backtracking -r -U --no-emit-index-url -o requirements.txt requirements.in
 	@echo "Generating requirements-dev.txt"
 	@pip-compile --resolver=backtracking -r -U --no-emit-index-url -o requirements-dev.txt requirements-dev.in
+
+.PHONY: install install-dev test pre-commit pre-commit-update mypy vulture lint requirements
