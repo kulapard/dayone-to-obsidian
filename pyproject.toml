@@ -1,0 +1,64 @@
+[tool.black]
+line-length = 99
+
+[tool.isort]
+profile = "black"
+line_length = 99
+
+[tool.mypy]
+python_version = "3.11"
+exclude = [
+    "tests", ".venv"
+]
+install_types = true
+non_interactive = true
+ignore_missing_imports = true
+show_error_codes = true
+
+# Untyped definitions and calls
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+
+# None and Optional handling
+no_implicit_optional = true
+
+# Configuring warnings
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_return_any = true
+warn_unused_configs = true
+
+# Miscellaneous strictness flags
+implicit_reexport = false
+strict_equality = true
+
+[tool.ruff]
+target-version = "py311"
+line-length = 99
+select = [
+    "E", # pycodestyle errors
+    "W", # pycodestyle warnings
+    "F", # pyflakes
+    "C", # flake8-comprehensions
+    "B", # flake8-bugbear
+    "G", # flake8-logging-format
+    "T20", # flake8-print
+]
+ignore = [
+    "E501", # line too long, handled by black
+]
+# Find but don't fix
+unfixable = [
+    "ERA", # Found commented-out code
+    "I", # We use independant isort to fix imports
+    "F401", # unused-import
+]
+
+[tool.vulture]
+exclude = ["conftest.py", "models.py"]
+ignore_decorators = ["@pytest.fixture", "@model_validator"]
+ignore_names = []
+min_confidence = 60
+sort_by_size = true
