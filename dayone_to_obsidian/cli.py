@@ -32,7 +32,7 @@ from dayone_to_obsidian.processors.media.base import MediaFileNotFoundError
     "tag_prefix",
     type=str,
     help="Prefix for tags. By default it will use `DayOne`.",
-    default="DayOne",
+    default=DEFAULT_OPTIONS.tag_prefix,
 )
 def main(json: Path, target_dir: Path, force: bool, tag_prefix: str) -> None:
     """
