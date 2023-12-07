@@ -43,7 +43,7 @@ Documentation = "https://github.com/kulapard/dayone-to-obsidian"
 Repository = "https://github.com/kulapard/dayone-to-obsidian"
 
 [tool.hatch.version]
-path = "dayone_to_obsidian/version.py"
+path = "dayone_to_obsidian/__init__.py"
 
 [tool.mypy]
 strict = true
