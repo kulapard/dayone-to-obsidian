@@ -59,12 +59,13 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
         id: python
+
       - name: Restore python cache
         uses: actions/cache@v3
         id: cache
         with:
           path: ${{ env.pythonLocation }}
-          key: python-${{ env.pythonLocation }}-${{ hashFiles('requirements*.txt') }}
+          key: python-${{ runner.os }}-${{ env.pythonLocation }}-${{ hashFiles('requirements*.txt') }}
       - name: Install Dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: pip install -r requirements.txt -r requirements-dev.txt
