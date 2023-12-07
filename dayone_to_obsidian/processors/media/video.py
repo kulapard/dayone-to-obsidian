@@ -4,7 +4,7 @@ from dayone_to_obsidian.processors.utils import humanize_location
 from .base import AbstractMediaProcessor
 
 
-class VideoProcessor(AbstractMediaProcessor):
+class VideoProcessor(AbstractMediaProcessor[Video]):
     source_media_dir_name = "videos"
     entry_media_dir_name = "media/video"
 

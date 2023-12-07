@@ -2,12 +2,12 @@ import re
 from functools import cached_property
 from pathlib import Path
 
+from dayone_to_obsidian.helpers import echo_red
 from dayone_to_obsidian.models import Entry
 from dayone_to_obsidian.options import DEFAULT_OPTIONS, Options
 
-from ..helpers import echo_red
 from .media.audio import AudioProcessor
-from .media.base import AbstractMediaProcessor, MediaFileNotFoundError
+from .media.base import MediaFileNotFoundError
 from .media.pdf import PdfProcessor
 from .media.photo import PhotoProcessor
 from .media.video import VideoProcessor
@@ -22,7 +22,8 @@ _CONTENT_TEMPLATE = """\
 {footer}
 """
 
-MEDIA_PROCESSORS: list[type[AbstractMediaProcessor]] = [
+Processor = AudioProcessor | PhotoProcessor | VideoProcessor | PdfProcessor
+MEDIA_PROCESSORS: list[type[Processor]] = [
     AudioProcessor,
     PhotoProcessor,
     VideoProcessor,

@@ -1,37 +1,59 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "dayone-to-obsidian"
+description = "Convert a JSON export from Day One into individual notes for Obsidian."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+    { name = "Taras Drapalyuk", email = "taras@drapalyuk.com" },
+]
+classifiers = [
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: System Administrators",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python",
+    "Topic :: Internet",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development",
+    "Typing :: Typed",
+    "Development Status :: 4 - Beta",
+    "Environment :: Web Environment",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = [
+    "click>=8.1.7,<9.0.0",
+    "python-dateutil>=2.8.2,<3.0.0",
+    "pydantic>=2.5.2,<3.0.0",
+]
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://github.com/kulapard/dayone-to-obsidian"
+Documentation = "https://github.com/kulapard/dayone-to-obsidian"
+Repository = "https://github.com/kulapard/dayone-to-obsidian"
+
+[tool.hatch.version]
+path = "dayone_to_obsidian/version.py"
+
+[tool.mypy]
+strict = true
+
 [tool.black]
 line-length = 99
 
 [tool.isort]
 profile = "black"
 line_length = 99
-
-[tool.mypy]
-exclude = [
-    "tests", ".venv"
-]
-install_types = true
-non_interactive = true
-ignore_missing_imports = true
-show_error_codes = true
-
-# Untyped definitions and calls
-disallow_untyped_calls = true
-disallow_untyped_defs = true
-disallow_incomplete_defs = true
-check_untyped_defs = true
-
-# None and Optional handling
-no_implicit_optional = true
-
-# Configuring warnings
-warn_redundant_casts = true
-warn_unused_ignores = true
-warn_return_any = true
-warn_unused_configs = true
-
-# Miscellaneous strictness flags
-implicit_reexport = false
-strict_equality = true
 
 [tool.ruff]
 target-version = "py311"

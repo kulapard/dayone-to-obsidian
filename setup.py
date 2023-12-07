@@ -14,7 +14,7 @@ def read(path: Path) -> str:
 
 
 def get_version() -> str:
-    """Get version from the package without actually importing it."""
+    """Get a version from the package without actually importing it."""
     for line in read(VERSION_FILE).splitlines():
         if line.startswith("__version__"):
             return eval(line.split("=")[1])
@@ -32,7 +32,6 @@ def requirements() -> list[str]:
 setup(
     name="dayone-to-obsidian",
     version=get_version(),
-    package_dir={"": "src"},
     description="DayOne to Obsidian Converter",
     author="Taras Drapalyuk",
     author_email="taras@drapalyuk.com",

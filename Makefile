@@ -11,13 +11,15 @@ install:
 	pip install --upgrade pip
 	pip install -U -r requirements.txt
 
-
 install-dev: install
 	pip install --upgrade pip
 	pip install -U -r requirements-dev.txt
 
 test:
 	pytest -vv --cov=$(APP_DIR)
+
+build:
+	python -m build
 
 pre-commit:
 	pre-commit run --all-files
