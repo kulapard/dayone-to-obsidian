@@ -19,7 +19,6 @@ jobs:
       - uses: pre-commit/action@v3.0.0
 
   mypy:
-    if: ${{ inputs.run_mypy }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
