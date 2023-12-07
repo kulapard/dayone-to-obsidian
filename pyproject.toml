@@ -51,10 +51,6 @@ strict = true
 [tool.black]
 line-length = 99
 
-[tool.isort]
-profile = "black"
-line_length = 99
-
 [tool.ruff]
 target-version = "py39"
 line-length = 99
@@ -72,6 +68,9 @@ select = [
 ignore = [
     "E501", # line too long, handled by black
 ]
+
+[tool.ruff.isort]
+known-third-party = ["click", "dateutil", "pydantic"]
 
 [tool.vulture]
 exclude = ["conftest.py", "models.py"]
