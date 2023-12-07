@@ -1,19 +1,7 @@
-import logging
 import os
-import shutil
 from pathlib import Path
 
 from dayone_to_obsidian.models import Location
-
-logger = logging.getLogger(__name__)
-
-
-def delete_existing_journal_folder(path: Path) -> None:
-    if path.exists():
-        logger.info("Deleting existing folder: %s", path)
-        shutil.rmtree(path)
-    else:
-        logger.info("Folder does not exist: %s", path)
 
 
 def ensure_dir(path: Path) -> None:

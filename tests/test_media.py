@@ -46,7 +46,7 @@ def test_video_processor(entry: Entry, tmp_dir: Path):
     video = entry.videos[0]
     assert p.get_old_link(video) == f"![](dayone-moment:/video/{video.identifier})"
     assert p.get_new_link(video) == f"![](media/video/{video.file_name})"
-    assert p.get_meta_data(video) == ("Duration: 14.905328798185941")
+    assert p.get_meta_data(video) == ("Duration: 15 seconds")
 
 
 def test_audio_processor(entry: Entry, tmp_dir: Path):
@@ -67,7 +67,7 @@ def test_audio_processor(entry: Entry, tmp_dir: Path):
     assert p.get_old_link(audio) == f"![](dayone-moment:/audio/{audio.identifier})"
     assert p.get_new_link(audio) == f"![](media/audio/{audio.file_name})"
     assert p.get_meta_data(audio) == (
-        "Title: My Audio File.mp3\nDuration: 942.63575\nDevice: My iPhone"
+        "Title: My Audio File.mp3\nDuration: 15 minutes 43 seconds\nDevice: My iPhone"
     )
 
 

@@ -56,25 +56,21 @@ profile = "black"
 line_length = 99
 
 [tool.ruff]
-target-version = "py311"
+target-version = "py39"
 line-length = 99
 select = [
     "E", # pycodestyle errors
     "W", # pycodestyle warnings
     "F", # pyflakes
+    "I", # isort
     "C", # flake8-comprehensions
     "B", # flake8-bugbear
     "G", # flake8-logging-format
     "T20", # flake8-print
+    "UP", # pyupgrade
 ]
 ignore = [
     "E501", # line too long, handled by black
-]
-# Find but don't fix
-unfixable = [
-    "ERA", # Found commented-out code
-    "I", # We use independant isort to fix imports
-    "F401", # unused-import
 ]
 
 [tool.vulture]
