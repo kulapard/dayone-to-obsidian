@@ -10,7 +10,6 @@ from dayone_to_obsidian.models import Journal
 from dayone_to_obsidian.options import DEFAULT_OPTIONS, Options
 
 from .entry import EntryProcessor
-from .utils import ensure_dir
 
 
 class ErrorLoadingJournal(Exception):
@@ -34,23 +33,28 @@ class JournalProcessor:
 
         return cls(journal=journal, json_path=json_path, options=options)
 
-    @property
+    @cached_property
     def root_dir(self) -> Path:
         """Path to the root directory. Same as the journal directory."""
         return self.json_path.parent
 
     @cached_property
+    def target_dir(self) -> Path:
+        """Path to the target directory. By default it's the same as the JSON directory."""
+        return self.options.target_dir or self.json_path.parent
+
+    @cached_property
     def journal_dir(self) -> Path:
         journal_dir_name = self.json_path.name.split(".")[0]
-        journal_dir = self.options.target_dir / journal_dir_name
-        ensure_dir(journal_dir)
+        journal_dir = self.target_dir / journal_dir_name
+        journal_dir = journal_dir.resolve()
         return journal_dir
 
     def run(self, force: bool) -> None:
         click.echo(f"Journal dir: {self.journal_dir}")
 
-        if force:
-            click.echo("Force overwrite of existing journal folder.")
+        if force and self.journal_dir.exists():
+            echo_yellow("Force overwrite of existing journal folder.")
             shutil.rmtree(self.journal_dir)
         else:
             click.echo("Checking if journal folder already exists.")

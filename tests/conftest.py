@@ -21,5 +21,5 @@ def entry(journal: Journal) -> Entry:
 @pytest.fixture
 def tmp_dir() -> Path:
     """Create a temporary directory and return its path. Delete the directory when the test finishes."""
-    with tempfile.TemporaryDirectory() as tmpdirname:
-        yield Path(tmpdirname)
+    with tempfile.TemporaryDirectory() as t:
+        yield Path(t).resolve()

@@ -131,7 +131,7 @@ class EntryProcessor:
 
         # Add tags
         tags = self.get_tags(tag_prefix=self.options.tag_prefix)
-        tags.extend(self.options.additional_tags)
+        tags.extend(list(self.options.additional_tags))
         if tags:
             headers.append({"tags": ", ".join(tags)})
 
