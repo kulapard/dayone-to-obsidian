@@ -4,7 +4,11 @@ import click
 
 from dayone_to_obsidian.helpers import echo_green, echo_red
 from dayone_to_obsidian.options import DEFAULT_OPTIONS, Options
-from dayone_to_obsidian.processors.journal import ErrorLoadingJournal, JournalProcessor
+from dayone_to_obsidian.processors.journal import (
+    ErrorLoadingJournal,
+    JournalDirAlreadyExists,
+    JournalProcessor,
+)
 from dayone_to_obsidian.processors.media.base import MediaFileNotFoundError
 
 
@@ -65,9 +69,6 @@ def run(
     """
     Convert your DayOne journal entries into Obsidian-ready markdown files.
     """
-    options = Options(tag_prefix=tag_prefix, additional_tags=additional_tags)
-    echo_green(f"Options: {options}")
-
     if json.is_file():
         json_files = [json]
     elif json.is_dir():
@@ -76,14 +77,17 @@ def run(
         echo_red(f"Invalid JSON path: {json}")
         return
 
-    target_dir = target_dir.resolve()
+    if target_dir is None:
+        target_dir = json.parent
+    else:
+        target_dir = target_dir.resolve()
+
     echo_green(f"Target directory: `{target_dir}`")
 
-    if not target_dir.exists():
-        # Create target directory if it doesn't exist
-        echo_green(f"Creating target directory: {target_dir}")
-        target_dir.mkdir(parents=True)
-
+    options = Options(
+        tag_prefix=tag_prefix, additional_tags=list(additional_tags), target_dir=target_dir
+    )
+    click.echo(options)
     click.echo(f"Found {len(json_files)} JSON files to process")  # noqa: T201
 
     for json_path in json_files:
@@ -91,10 +95,14 @@ def run(
         echo_green(f"Processing `{json_path}`")
         try:
             JournalProcessor.load(json_path=json_path, options=options).run(force=force)
-        except ErrorLoadingJournal:
-            echo_red(f"Error loading DayOne journal: {json_path}")
+        except ErrorLoadingJournal as e:
+            raise click.ClickException(f"Error loading DayOne journal: {json_path}") from e
         except MediaFileNotFoundError as e:
-            echo_red(f"Media file not found: {e}")
+            raise click.ClickException(f"Media file not found: {e}") from e
+        except JournalDirAlreadyExists as e:
+            raise click.ClickException(
+                f"Journal folder already exists: {e.journal_dir}. Use --force to overwrite."
+            ) from e
 
 
 if __name__ == "__main__":

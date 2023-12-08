@@ -1,4 +1,3 @@
-from collections.abc import Iterable
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -7,8 +6,12 @@ from pathlib import Path
 class Options:
     target_dir: Path | None = None
     tag_prefix: str = ""
-    additional_tags: Iterable[str] = field(default_factory=list)
+    additional_tags: list[str] = field(default_factory=list)
     default_filename: str = "Untitled"
+
+    def __repr__(self) -> str:
+        params = "\n".join(f" - {k} = {v!s}" for k, v in self.__dict__.items())
+        return f"Options:\n{params}"
 
 
 DEFAULT_OPTIONS = Options()

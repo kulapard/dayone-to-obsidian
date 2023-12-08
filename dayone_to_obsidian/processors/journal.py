@@ -16,6 +16,12 @@ class ErrorLoadingJournal(Exception):
     pass
 
 
+class JournalDirAlreadyExists(Exception):
+    def __init__(self, journal_dir: Path):
+        self.journal_dir = journal_dir
+        super().__init__(f"Journal folder already exists: {journal_dir}")
+
+
 class JournalProcessor:
     def __init__(self, *, journal: Journal, json_path: Path, options: Options):
         self.journal = journal
@@ -59,10 +65,7 @@ class JournalProcessor:
         else:
             click.echo("Checking if journal folder already exists.")
             if self.journal_dir.exists():
-                echo_red(
-                    f"Journal folder already exists: {self.journal_dir}. Use --force to overwrite."
-                )
-                return
+                raise JournalDirAlreadyExists(self.journal_dir)
 
         processed_count = 0
         for entry in self.journal.entries:
