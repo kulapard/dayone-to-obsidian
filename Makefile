@@ -7,17 +7,15 @@ pyenv:
 delete-pyenv:
 	pyenv virtualenv-delete -f $(PROJECT_NAME)
 
-install:
-	pip install --upgrade pip
-	pip install -U -r requirements.txt
-
-
-install-dev: install
+install-dev:
 	pip install --upgrade pip
 	pip install -U -r requirements-dev.txt
 
 test:
 	pytest -vv --cov=$(APP_DIR)
+
+build:
+	python -m build
 
 pre-commit:
 	pre-commit run --all-files
@@ -33,10 +31,4 @@ vulture:
 
 lint: pre-commit mypy
 
-requirements:
-	@echo "Generating requirements.txt"
-	@pip-compile --resolver=backtracking -r -U --no-emit-index-url -o requirements.txt requirements.in
-	@echo "Generating requirements-dev.txt"
-	@pip-compile --resolver=backtracking -r -U --no-emit-index-url -o requirements-dev.txt requirements-dev.in
-
-.PHONY: install install-dev test pre-commit pre-commit-update mypy vulture lint requirements
+.PHONY: install-dev test pre-commit pre-commit-update mypy vulture lint

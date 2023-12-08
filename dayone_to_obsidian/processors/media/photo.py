@@ -4,7 +4,7 @@ from dayone_to_obsidian.processors.utils import humanize_location
 from .base import AbstractMediaProcessor
 
 
-class PhotoProcessor(AbstractMediaProcessor):
+class PhotoProcessor(AbstractMediaProcessor[Photo]):
     source_media_dir_name = "photos"
     entry_media_dir_name = "media/photo"
 

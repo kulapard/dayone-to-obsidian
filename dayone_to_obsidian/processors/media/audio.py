@@ -1,10 +1,10 @@
 from dayone_to_obsidian.models import Audio
-from dayone_to_obsidian.processors.utils import humanize_location
+from dayone_to_obsidian.processors.utils import humanize_duration, humanize_location
 
 from .base import AbstractMediaProcessor
 
 
-class AudioProcessor(AbstractMediaProcessor):
+class AudioProcessor(AbstractMediaProcessor[Audio]):
     source_media_dir_name = "audios"
     entry_media_dir_name = "media/audio"
 
@@ -23,9 +23,9 @@ class AudioProcessor(AbstractMediaProcessor):
         if media.title:
             meta.append(f"Title: {media.title}")
 
-        # TODO: human readable duration
         if media.duration:
-            meta.append(f"Duration: {media.duration}")
+            duration = humanize_duration(media.duration)
+            meta.append(f"Duration: {duration}")
 
         if media.date:
             meta.append(f"Date: {media.date}")

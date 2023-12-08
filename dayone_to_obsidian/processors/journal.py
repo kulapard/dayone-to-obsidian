@@ -1,4 +1,3 @@
-import logging
 import shutil
 from functools import cached_property
 from pathlib import Path
@@ -6,14 +5,12 @@ from pathlib import Path
 import click
 from pydantic import ValidationError
 
+from dayone_to_obsidian.helpers import echo_red, echo_yellow
 from dayone_to_obsidian.models import Journal
+from dayone_to_obsidian.options import Options
 
-from ..helpers import echo_red, echo_yellow
-from ..options import Options
 from .entry import EntryProcessor
 from .utils import ensure_dir
-
-logger = logging.getLogger(__name__)
 
 
 class ErrorLoadingJournal(Exception):
@@ -37,8 +34,9 @@ class JournalProcessor:
 
         return cls(journal=journal, json_path=json_path, options=options)
 
-    @cached_property
+    @property
     def root_dir(self) -> Path:
+        """Path to the root directory. Same as the journal directory."""
         return self.json_path.parent
 
     @cached_property
@@ -47,11 +45,6 @@ class JournalProcessor:
         journal_dir = self.options.target_dir / journal_dir_name
         ensure_dir(journal_dir)
         return journal_dir
-
-    @cached_property
-    def media_dir(self) -> Path:
-        """Path to the media directory for this journal. Same as the journal directory."""
-        return self.json_path.parent
 
     def run(self, force: bool) -> None:
         click.echo(f"Journal dir: {self.journal_dir}")

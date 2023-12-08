@@ -4,7 +4,7 @@ from dayone_to_obsidian.processors.utils import humanize_location
 from .base import AbstractMediaProcessor
 
 
-class PdfProcessor(AbstractMediaProcessor):
+class PdfProcessor(AbstractMediaProcessor[Pdf]):
     source_media_dir_name = "pdfs"
     entry_media_dir_name = "media/pdf"
 
