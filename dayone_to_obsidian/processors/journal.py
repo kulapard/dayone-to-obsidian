@@ -7,7 +7,7 @@ from pydantic import ValidationError
 
 from dayone_to_obsidian.helpers import echo_red, echo_yellow
 from dayone_to_obsidian.models import Journal
-from dayone_to_obsidian.options import Options
+from dayone_to_obsidian.options import DEFAULT_OPTIONS, Options
 
 from .entry import EntryProcessor
 from .utils import ensure_dir
@@ -24,7 +24,7 @@ class JournalProcessor:
         self.options = options
 
     @classmethod
-    def load(cls, *, json_path: Path, options: Options) -> "JournalProcessor":
+    def load(cls, *, json_path: Path, options: Options = DEFAULT_OPTIONS) -> "JournalProcessor":
         with json_path.open(encoding="utf-8") as json_file:
             try:
                 journal = Journal.model_validate_json(json_file.read())

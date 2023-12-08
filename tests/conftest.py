@@ -3,14 +3,19 @@ from pathlib import Path
 
 import pytest
 
-from dayone_to_obsidian.models import Entry
-from tests.constants import ENTRY_JSON_PATH
+from dayone_to_obsidian.models import Entry, Journal
+from tests.constants import JOURNAL_JSON_PATH
 
 
-@pytest.fixture
-def entry() -> Entry:
-    with ENTRY_JSON_PATH.open(encoding="utf-8") as json_file:
-        return Entry.model_validate_json(json_file.read())
+@pytest.fixture(scope="session")
+def journal() -> Journal:
+    with JOURNAL_JSON_PATH.open(encoding="utf-8") as json_file:
+        return Journal.model_validate_json(json_file.read())
+
+
+@pytest.fixture(scope="session")
+def entry(journal: Journal) -> Entry:
+    return journal.entries[0]
 
 
 @pytest.fixture

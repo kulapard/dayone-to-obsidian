@@ -1,0 +1,139 @@
+{
+  "metadata": {
+    "version": "1.0"
+  },
+  "entries": [
+    {
+      "timeZone": "Europe\/London",
+      "starred": false,
+      "richText": "test rich text",
+      "text": "test text",
+      "creationDeviceType": "iPhone",
+      "userActivity": {
+        "activityName": "Stationary",
+        "stepCount": 3572
+      },
+      "modifiedDate": "2021-11-15T12:34:56Z",
+      "uuid": "5BA8A0499775E5B7AB050CE5A5A32F87",
+      "creationDevice": "My iPhone",
+      "isPinned": false,
+      "weather": {
+        "sunsetDate": "2018-04-21T16:48:38Z",
+        "temperatureCelsius": 11,
+        "weatherServiceName": "HAMweather",
+        "windBearing": 280,
+        "sunriseDate": "2018-04-21T02:10:33Z",
+        "conditionsDescription": "Mostly Cloudy",
+        "pressureMB": 987,
+        "visibilityKM": 48.280319213867188,
+        "relativeHumidity": 62,
+        "windSpeedKPH": 58,
+        "weatherCode": "mostly-cloudy-night",
+        "windChillCelsius": 11
+      },
+      "photos": [
+        {
+          "fileSize": 12345,
+          "location": {
+            "region": {
+              "center": {
+                "longitude": -0.158611,
+                "latitude": 51.523788
+              },
+              "identifier": "<+51.523788,-0.158611> radius 70.80",
+              "radius": 70.80
+            },
+            "localityName": "London",
+            "country": "UK",
+            "timeZoneName": "Europe\/London",
+            "administrativeArea": "London",
+            "longitude": -0.158611,
+            "placeName": "221B Baker Street",
+            "latitude": 51.523788
+          },
+          "lensModel": "iPhone 6 front camera 2.65mm f\/2.2",
+          "orderInEntry": 0,
+          "creationDevice": "My iPhone",
+          "duration": 0,
+          "favorite": false,
+          "cameraMake": "Apple",
+          "type": "jpeg",
+          "lensMake": "Apple",
+          "identifier": "E334B96B75800C44A03B34E72E5F4282",
+          "date": "2018-04-21T14:30:59Z",
+          "exposureBiasValue": 0,
+          "height": 1280,
+          "fnumber": "2.2",
+          "width": 960,
+          "md5": "6e8f17a1cd2fd963d5843aca794e2287",
+          "isSketch": false,
+          "focalLength": "2.65",
+          "cameraModel": "iPhone 6"
+        }
+      ],
+      "videos": [
+        {
+          "favorite": false,
+          "fileSize": 2321676,
+          "orderInEntry": 0,
+          "width": 640,
+          "type": "mp4",
+          "identifier": "B279A2C2A9EDFF3F52696205C8156B86",
+          "height": 640,
+          "creationDevice": "Instagram",
+          "duration": 14.905328798185941,
+          "md5": "62bb62c6ccb2571f2270dc5abfdf7f94"
+        }
+      ],
+      "audios": [
+        {
+          "fileSize": 4575222,
+          "orderInEntry": 0,
+          "title": "My Audio File.mp3",
+          "creationDevice": "My iPhone",
+          "audioChannels": "Mono",
+          "duration": 942.63575000000003,
+          "favorite": false,
+          "identifier": "9598ACB0F64F0D624435BC683B867B47",
+          "format": ".mp3",
+          "height": 0,
+          "width": 0,
+          "md5": "a2c335fa03eb95c9a5444ff862ffd839",
+          "sampleRate": "8.0 kHz",
+          "timeZoneName": "Europe\/Moscow"
+        }
+      ],
+      "pdfAttachments": [
+        {
+          "fileSize": 12345,
+          "pdfName": "My PDF File.pdf",
+          "identifier": "6BACD6B99D95FD540D7C9BD8C90564C5",
+          "md5": "bccec75c303608619bc641f3c90b135a"
+        }
+      ],
+      "creationDate": "2018-04-21T17:57:04Z",
+      "isAllDay": false,
+      "creationOSVersion": "11.3",
+      "duration": 0,
+      "location": {
+        "region": {
+          "center": {
+            "longitude": -0.158611,
+            "latitude": 51.523788
+          },
+          "identifier": "221B Baker Street",
+          "radius": 75
+        },
+        "localityName": "London",
+        "country": "UK",
+        "longitude": -0.158611,
+        "administrativeArea": "London",
+        "placeName": "221B Baker Street",
+        "latitude": 51.523788,
+        "userLabel": "221B Baker Street"
+      },
+      "creationDeviceModel": "iPhone7,2",
+      "creationOSName": "iOS"
+    }
+  ]
+}
