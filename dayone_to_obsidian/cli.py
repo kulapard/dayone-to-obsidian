@@ -46,7 +46,8 @@ def version() -> None:
     "--tag-prefix",
     "tag_prefix",
     type=str,
-    help="Prefix for tags. By default it's empty. Example: `--tag-prefix=dayone:` will convert `tag` to `dayone:tag`.",
+    help="Prefix for tags. By default it's empty. "
+    "Example: `--tag-prefix=dayone:` will convert `tag` to `dayone:tag`.",
     default=DEFAULT_OPTIONS.tag_prefix,
 )
 def run(json: Path, target_dir: Path, force: bool, tag_prefix: str) -> None:
