@@ -47,6 +47,8 @@ path = "dayone_to_obsidian/__init__.py"
 
 [tool.mypy]
 strict = true
+install_types = true
+non_interactive = true
 
 [tool.black]
 line-length = 99
