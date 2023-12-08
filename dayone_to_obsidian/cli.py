@@ -8,7 +8,20 @@ from dayone_to_obsidian.processors.journal import ErrorLoadingJournal, JournalPr
 from dayone_to_obsidian.processors.media.base import MediaFileNotFoundError
 
 
-@click.command()
+@click.group()
+def main() -> None:
+    pass
+
+
+@main.command()
+def version() -> None:
+    """Show the program's version number and exit."""
+    from . import __version__
+
+    click.echo(__version__)
+
+
+@main.command()
 @click.option(
     "--json",
     type=click.Path(exists=True, file_okay=True, dir_okay=True, path_type=Path),
@@ -34,7 +47,7 @@ from dayone_to_obsidian.processors.media.base import MediaFileNotFoundError
     help="Prefix for tags. By default it will use `DayOne`.",
     default=DEFAULT_OPTIONS.tag_prefix,
 )
-def main(json: Path, target_dir: Path, force: bool, tag_prefix: str) -> None:
+def run(json: Path, target_dir: Path, force: bool, tag_prefix: str) -> None:
     """
     Convert your DayOne journal entries into Obsidian-ready markdown files.
     """
