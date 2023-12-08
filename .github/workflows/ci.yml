@@ -55,9 +55,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
+          # Issue ref: https://github.com/actions/setup-python/issues/436
+          # cache: "pip"
+          cache-dependency-path: pyproject.toml
         id: python
 
       - name: Restore python cache
@@ -65,10 +68,10 @@ jobs:
         id: cache
         with:
           path: ${{ env.pythonLocation }}
-          key: python-${{ runner.os }}-${{ env.pythonLocation }}-${{ hashFiles('requirements*.txt') }}
+          key: python-${{ runner.os }}-${{ env.pythonLocation }}-${{ hashFiles('pyproject.toml', 'requirements-test.txt') }}
       - name: Install Dependencies
         if: steps.cache.outputs.cache-hit != 'true'
-        run: pip install -r requirements-dev.txt
+        run: pip install -r requirements-test.txt
 
       - name: Run tests
         run: make test
