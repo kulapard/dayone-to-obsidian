@@ -2,7 +2,7 @@ from pathlib import Path
 
 import click
 
-from dayone_to_obsidian.helpers import echo_green, echo_red
+from dayone_to_obsidian.helpers import echo_green
 from dayone_to_obsidian.options import DEFAULT_OPTIONS, Options
 from dayone_to_obsidian.processors.journal import (
     ErrorLoadingJournal,
@@ -69,19 +69,16 @@ def run(
     """
     Convert your DayOne journal entries into Obsidian-ready markdown files.
     """
-    if json.is_file():
-        json_files = [json]
-    elif json.is_dir():
+    if json.is_dir():
         json_files = list(json.glob("*.json"))
     else:
-        echo_red(f"Invalid JSON path: {json}")
-        return
+        json_files = [json]
 
     if target_dir is None:
-        target_dir = json.parent
-    else:
-        target_dir = target_dir.resolve()
+        target_dir = json.parent if json.is_dir() else json
 
+    # Get an absolute path
+    target_dir = target_dir.resolve()
     echo_green(f"Target directory: `{target_dir}`")
 
     options = Options(
@@ -91,6 +88,7 @@ def run(
     click.echo(f"Found {len(json_files)} JSON files to process")  # noqa: T201
 
     for json_path in json_files:
+        # Get an absolute path
         json_path = json_path.resolve()
         echo_green(f"Processing `{json_path}`")
         try:
