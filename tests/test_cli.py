@@ -1,6 +1,7 @@
 from click.testing import CliRunner
 
-from dayone_to_obsidian import __version__, cli
+from dayone_to_obsidian import cli
+from dayone_to_obsidian.version import __version__
 
 
 def test_version():
