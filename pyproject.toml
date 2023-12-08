@@ -43,6 +43,9 @@ Homepage = "https://github.com/kulapard/dayone-to-obsidian"
 Documentation = "https://github.com/kulapard/dayone-to-obsidian"
 Repository = "https://github.com/kulapard/dayone-to-obsidian"
 
+[project.scripts]
+cli-name = "dayone_to_obsidian.cli:main"
+
 [tool.hatch.version]
 path = "dayone_to_obsidian/__init__.py"
 
