@@ -25,7 +25,8 @@ def version() -> None:
 @click.option(
     "--json",
     type=click.Path(exists=True, file_okay=True, dir_okay=True, path_type=Path),
-    help="Path to the DayOne JSON file or directory with JSON files (e.g.: Journal.json or ./DayOneExport). By default it will look for JSON files in the current directory.",
+    help="Path to the DayOne JSON file or directory with JSON files (e.g.: Journal.json or ./DayOneExport).\n"
+    "By default it will look for JSON files in the current directory.",
     default=Path("."),
 )
 @click.option(
@@ -37,14 +38,16 @@ def version() -> None:
     "--target",
     "target_dir",
     type=click.Path(file_okay=False, dir_okay=True, path_type=Path),
-    help="Path to the target directory where the converted files will be stored. By default it will create a new folder in the current directory.",
+    help="Path to the target directory where the converted files will be stored. "
+    "By default it will create a new folder in the current directory.",
     default=DEFAULT_OPTIONS.target_dir,
 )
 @click.option(
     "--tag-prefix",
     "tag_prefix",
     type=str,
-    help="Prefix for tags. By default it will use `DayOne`.",
+    help="Prefix for tags. By default it's empty.\n"
+    "Example: `--tag-prefix=dayone:` will convert `tag` to `dayone:tag`.",
     default=DEFAULT_OPTIONS.tag_prefix,
 )
 def run(json: Path, target_dir: Path, force: bool, tag_prefix: str) -> None:
