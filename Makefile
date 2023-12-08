@@ -31,4 +31,17 @@ vulture:
 
 lint: pre-commit mypy
 
-.PHONY: install-dev test pre-commit pre-commit-update mypy vulture lint
+bump-version-major:
+	hatchling version major
+
+bump-version-minor:
+	hatchling version minor
+
+bump-version-fix:
+	hatchling version fix
+
+commit-version:
+	git add $(APP_DIR)/__init__.py
+	git commit -m "Bump version to \`$(shell hatchling version)\`"
+
+.PHONY: install-dev test pre-commit pre-commit-update mypy vulture lint bump-version-major bump-version-minor bump-version-fix
