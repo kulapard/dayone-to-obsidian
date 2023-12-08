@@ -82,8 +82,8 @@ ignore = [
 known-third-party = ["click", "dateutil", "pydantic"]
 
 [tool.vulture]
-exclude = ["conftest.py", "models.py"]
-ignore_decorators = ["@pytest.fixture", "@model_validator"]
+exclude = ["conftest.py", "models.py", "version.py"]
+ignore_decorators = ["@pytest.fixture", "@model_validator", "@main.command"]
 ignore_names = []
 min_confidence = 60
 sort_by_size = true

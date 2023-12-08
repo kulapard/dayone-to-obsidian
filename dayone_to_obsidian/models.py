@@ -31,10 +31,6 @@ class Location(BaseModel):
     localityName: str | None = None
 
 
-class UserActivity(BaseModel):
-    activityName: str
-
-
 class Photo(BaseModel):
     md5: str
     identifier: str
@@ -141,7 +137,6 @@ class Entry(BaseModel):
     richText: str | None = None
     duration: int | None = None
     location: Location | None = None
-    userActivity: UserActivity | None = None
     tags: list[str] = Field(default_factory=list)
     weather: Weather | None = None
 
@@ -166,15 +161,6 @@ class Entry(BaseModel):
     def creation_local_date_str(self) -> str:
         # Format the date and time with the weekday
         return self.creation_local_date.strftime("%Y-%m-%d %H:%M:%S %A")
-
-    @property
-    def modified_local_date(self) -> datetime:
-        return self.modifiedDate.astimezone(tz=self.tz)
-
-    @property
-    def modified_local_date_str(self) -> str:
-        # Format the date and time with the weekday
-        return self.modified_local_date.strftime("%Y-%m-%d %H:%M:%S %A")
 
 
 class Metadata(BaseModel):
