@@ -16,7 +16,7 @@ def main() -> None:
 @main.command()
 def version() -> None:
     """Show the program's version number and exit."""
-    from . import __version__
+    from .version import __version__
 
     click.echo(__version__)
 

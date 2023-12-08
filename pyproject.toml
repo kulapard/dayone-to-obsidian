@@ -1,5 +1,5 @@
 [build-system]
-requires = ["hatchling>=1.18.0,<2.0.0"]
+requires = ["hatchling>=1.18.0,<2.0.0","hatch-vcs>=0.4.0,1.0.0"]
 build-backend = "hatchling.build"
 
 [project]
@@ -47,7 +47,10 @@ Repository = "https://github.com/kulapard/dayone-to-obsidian"
 dayone-to-obsidian = "dayone_to_obsidian.cli:main"
 
 [tool.hatch.version]
-path = "dayone_to_obsidian/__init__.py"
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "dayone_to_obsidian/version.py"
 
 [tool.mypy]
 strict = true
