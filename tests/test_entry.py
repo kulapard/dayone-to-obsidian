@@ -36,6 +36,6 @@ def test_entry_processor(entry: Entry, tmp_dir: Path):
         "location: 221B Baker Street, London, UK\n"
         "---\n"
         "test text\n"
-        "---\n"
+        "\n"
         "[221B Baker Street, London, UK](https://www.google.com/maps/search/?api=1&query=51.523788,-0.158611)\n"
     )
