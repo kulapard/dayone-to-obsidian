@@ -202,6 +202,4 @@ class EntryProcessor:
         return tags
 
     def get_humanized_location(self) -> str:
-        if not self.entry.location:
-            return ""
-        return humanize_location(self.entry.location)
+        return humanize_location(self.entry.location) if self.entry.location else ""
