@@ -96,7 +96,7 @@ def run(
         except ErrorLoadingJournal as e:
             raise click.ClickException(f"Error loading DayOne journal: {json_path}") from e
         except MediaFileNotFoundError as e:
-            raise click.ClickException(f"Media file not found: {e}") from e
+            raise click.ClickException(f"Media file not found: {e.media_file_path}") from e
         except JournalDirAlreadyExists as e:
             raise click.ClickException(
                 f"Journal folder already exists: {e.journal_dir}. Use --force to overwrite."

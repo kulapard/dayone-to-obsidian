@@ -2,12 +2,10 @@ import re
 from functools import cached_property
 from pathlib import Path
 
-from dayone_to_obsidian.helpers import echo_red
 from dayone_to_obsidian.models import Entry
 from dayone_to_obsidian.options import DEFAULT_OPTIONS, Options
 
 from .media.audio import AudioProcessor
-from .media.base import MediaFileNotFoundError
 from .media.pdf import PdfProcessor
 from .media.photo import PhotoProcessor
 from .media.video import VideoProcessor
@@ -155,13 +153,9 @@ class EntryProcessor:
 
     def run_media_processors(self, body: str) -> str:
         for MediaProcessor in MEDIA_PROCESSORS:
-            try:
-                body = MediaProcessor(
-                    entry=self.entry, root_dir=self.root_dir, entry_dir=self.entry_dir
-                ).run(body)
-            except MediaFileNotFoundError:
-                echo_red(f"Media file not found for entry uuid: {self.entry.uuid}")
-                raise
+            body = MediaProcessor(
+                entry=self.entry, root_dir=self.root_dir, entry_dir=self.entry_dir
+            ).run(body)
 
         return body
 

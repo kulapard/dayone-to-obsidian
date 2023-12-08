@@ -10,7 +10,9 @@ MediaType = TypeVar("MediaType", bound=Audio | Photo | Video | Pdf)
 
 
 class MediaFileNotFoundError(Exception):
-    pass
+    def __init__(self, media_file_path: Path):
+        self.media_file_path = media_file_path
+        super().__init__(f"Media file not found: {media_file_path}")
 
 
 class AbstractMediaProcessor(abc.ABC, Generic[MediaType]):
@@ -76,7 +78,7 @@ class AbstractMediaProcessor(abc.ABC, Generic[MediaType]):
         new_media_path = entry_media_dir / media.file_name
 
         if not old_media_path.exists():
-            raise MediaFileNotFoundError(f"Media file not found: {old_media_path}")
+            raise MediaFileNotFoundError(old_media_path)
 
         ensure_dir(new_media_path.parent)
         shutil.copy(old_media_path, new_media_path)
