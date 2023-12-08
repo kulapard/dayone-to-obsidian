@@ -4,7 +4,7 @@ from click.testing import CliRunner
 
 from dayone_to_obsidian import cli
 from dayone_to_obsidian.version import __version__
-from tests.constants import JOURNAL_JSON_PATH
+from tests.constants import INVALID_JSON_PATH, JOURNAL_JSON_PATH
 
 
 def test_version():
@@ -57,3 +57,12 @@ def test_run_force(tmp_dir: Path):
     assert "Force overwrite of existing journal folder" in result.output
     assert "Found 1 JSON files to process" in result.output
     assert "Processed 1 entries" in result.output
+
+
+def test_run_invalid_json(tmp_dir: Path):
+    runner = CliRunner()
+    result = runner.invoke(
+        cli.main, ["run", "--json", str(INVALID_JSON_PATH), "--target", str(tmp_dir)]
+    )
+    assert result.exit_code == 1, result.output
+    assert "Invalid DayOne journal file" in result.output
