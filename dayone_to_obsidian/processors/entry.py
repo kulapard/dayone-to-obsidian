@@ -18,7 +18,7 @@ _CONTENT_TEMPLATE = """\
 {header}
 ---
 {body}
----
+
 {footer}
 """
 
