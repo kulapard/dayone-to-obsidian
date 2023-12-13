@@ -6,7 +6,7 @@ from .base import AbstractMediaProcessor
 
 class PdfProcessor(AbstractMediaProcessor[Pdf]):
     source_media_dir_name = "pdfs"
-    entry_media_dir_name = "media/pdf"
+    entry_media_dir_name = "assets"
 
     def get_medias(self) -> list[Pdf]:
         return self.entry.pdfAttachments

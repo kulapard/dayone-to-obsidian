@@ -46,7 +46,7 @@ class JournalProcessor:
 
     @cached_property
     def target_dir(self) -> Path:
-        """Path to the target directory. By default it's the same as the JSON directory."""
+        """Path to the target directory. By default, it's the same as the JSON directory."""
         return self.options.target_dir or self.json_path.parent
 
     @cached_property

@@ -6,7 +6,7 @@ from .base import AbstractMediaProcessor
 
 class PhotoProcessor(AbstractMediaProcessor[Photo]):
     source_media_dir_name = "photos"
-    entry_media_dir_name = "media/photo"
+    entry_media_dir_name = "assets"
 
     def get_medias(self) -> list[Photo]:
         return self.entry.photos
