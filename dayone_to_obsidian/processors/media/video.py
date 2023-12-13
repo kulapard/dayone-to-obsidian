@@ -6,7 +6,7 @@ from .base import AbstractMediaProcessor
 
 class VideoProcessor(AbstractMediaProcessor[Video]):
     source_media_dir_name = "videos"
-    entry_media_dir_name = "media/video"
+    entry_media_dir_name = "assets"
 
     def get_medias(self) -> list[Video]:
         return self.entry.videos

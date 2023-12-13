@@ -6,7 +6,7 @@ from .base import AbstractMediaProcessor
 
 class AudioProcessor(AbstractMediaProcessor[Audio]):
     source_media_dir_name = "audios"
-    entry_media_dir_name = "media/audio"
+    entry_media_dir_name = "assets"
 
     def get_medias(self) -> list[Audio]:
         return self.entry.audios
