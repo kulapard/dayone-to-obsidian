@@ -3,6 +3,6 @@
 
 pre-commit==3.6.0
 mypy==1.8.0
-pip-tools==7.3.0
+pip-tools==7.4.0
 vulture==2.11
 hatchling==1.21.1
