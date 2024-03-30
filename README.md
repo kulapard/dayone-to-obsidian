@@ -6,7 +6,7 @@
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/dayone-to-obsidian)
 ---
 
-Convert your [Day One](https://dayoneapp.com/) journal entries into Markdown files 
+Convert your [Day One](https://dayoneapp.com/) journal entries into Markdown files
 compatible with [Obsidian](https://obsidian.md).
 
 ## Features
