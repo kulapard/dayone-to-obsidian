@@ -1,7 +1,7 @@
 -e .
 -r requirements-test.txt
 
-pre-commit==3.7.0
+pre-commit==3.7.1
 mypy==1.9.0
 pip-tools==7.4.1
 vulture==2.11
