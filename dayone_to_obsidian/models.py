@@ -22,13 +22,14 @@ class Weather(BaseModel):
 
 
 class Location(BaseModel):
-    country: str
-    administrativeArea: str
-    placeName: str
     longitude: float
     latitude: float
+    country: str | None = None
+    administrativeArea: str | None = None
+    placeName: str | None = None
     userLabel: str | None = None
     localityName: str | None = None
+    timeZoneName: str | None = None
 
 
 class Photo(BaseModel):
