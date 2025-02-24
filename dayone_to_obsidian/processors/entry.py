@@ -145,7 +145,7 @@ class EntryProcessor:
         # Replace special characters
         body = self.entry.text.replace("\\", "")
         body = body.replace("\u2028", "\n")
-        body = body.replace("\u1C6A", "\n\n")
+        body = body.replace("\u1c6a", "\n\n")
 
         # Run media processors to replace media links
         body = self.run_media_processors(body)
