@@ -7,12 +7,12 @@ from pydantic import BaseModel, Field
 class Weather(BaseModel):
     temperatureCelsius: float
     weatherServiceName: str
-    windBearing: int
-    conditionsDescription: str
-    relativeHumidity: int
-    weatherCode: str
-    pressureMB: float
-    windSpeedKPH: float
+    windBearing: int | None = None
+    conditionsDescription: str | None = None
+    relativeHumidity: int | None = None
+    weatherCode: str | None = None
+    pressureMB: float | None = None
+    windSpeedKPH: float | None = None
     windChillCelsius: float | None = None
     sunriseDate: datetime | None = None
     sunsetDate: datetime | None = None
