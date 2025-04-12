@@ -17,18 +17,12 @@ compatible with [Obsidian](https://obsidian.md).
 - **Tag Support**: Migrates all tags from Day One, allowing for easy categorization and search within Obsidian.
 - **Image Embedding**: Automatically transfers and embeds any images from Day One entries into the Markdown files.
 
-## Prerequisites
+## Quick Start
 
-Before using `dayone-to-obsidian`, ensure you have the following:
-
-- Python 3.10 or higher installed on your machine.
-- Your Day One journal exported in JSON format.
-- Obsidian installed if you wish to immediately start using your migrated files in Obsidian.
-
-## Installation
+With [uv](https://docs.astral.sh/uv/) package manager:
 
 ```bash
-pip install dayone-to-obsidian
+uvx dayone-to-obsidian run --json /path/to/your/dayone_export_dir
 ```
 
 ## Usage
@@ -45,7 +39,7 @@ Follow these steps for conversion:
    The command structure is as follows:
 
    ```bash
-   dayone-to-obsidian run --json /path/to/your/dayone_export.json --target /path/to/target_directory [--force] [--tag-prefix=prefix] [--tag=tag1] [--tag=tag2]
+   uvx dayone-to-obsidian run --json /path/to/your/dayone_export.json --target /path/to/target_directory [--force] [--tag-prefix=prefix] [--tag=tag1] [--tag=tag2]
    ```
 
     - `--json`: Path to your Day One export JSON file or directory.
@@ -60,7 +54,7 @@ Follow these steps for conversion:
    Example command:
 
    ```bash
-   dayone-to-obsidian run --json ./DayOneExport/Journal.json --target ./ObsidianNotes --tag-prefix=DayOne/ --tag=Imported --tag=Journal
+   uvx dayone-to-obsidian run --json ./DayOneExport/Journal.json --target ./ObsidianNotes --tag-prefix=DayOne/ --tag=Imported --tag=Journal
    ```
 
    This command specifies a Day One JSON export file, sets the target directory for the converted Markdown files, adds a
