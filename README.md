@@ -21,7 +21,7 @@ compatible with [Obsidian](https://obsidian.md).
 
 ## Quick Start
 
-With [uv](https://docs.astral.sh/uv/) package manager. Run in the unpacked Day One export directory:
+Install [uv](https://docs.astral.sh/uv/) package manager and run in the unpacked Day One export directory:
 
 ```bash
 uvx dayone-to-obsidian run
