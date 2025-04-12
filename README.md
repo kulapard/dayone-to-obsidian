@@ -1,7 +1,6 @@
-# Day One to Obsidian Converter
-
-
 ![Day One to Obsidian](./assets/logo_mini.png "Day One to Obsidian Logo")
+
+# Day One to Obsidian Converter
 
 [![Build Status](https://github.com/kulapard/dayone-to-obsidian/actions/workflows/ci.yml/badge.svg)](https://github.com/kulapard/dayone-to-obsidian/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/github/kulapard/dayone-to-obsidian/graph/badge.svg?token=Y5EJBF1F25)](https://codecov.io/github/kulapard/dayone-to-obsidian)
