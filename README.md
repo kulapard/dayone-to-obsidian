@@ -21,10 +21,10 @@ compatible with [Obsidian](https://obsidian.md).
 
 ## Quick Start
 
-With [uv](https://docs.astral.sh/uv/) package manager:
+With [uv](https://docs.astral.sh/uv/) package manager. Run in the unpacked Day One export directory:
 
 ```bash
-uvx dayone-to-obsidian run --json /path/to/your/dayone_export_dir
+uvx dayone-to-obsidian run
 ```
 
 ## Usage
