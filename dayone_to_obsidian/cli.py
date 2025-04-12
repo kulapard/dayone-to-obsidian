@@ -75,7 +75,7 @@ def run(
         json_files = [json]
 
     if target_dir is None:
-        target_dir = json.parent if json.is_dir() else json
+        target_dir = json if json.is_dir() else json.parent
 
     # Get an absolute path
     target_dir = target_dir.resolve()
