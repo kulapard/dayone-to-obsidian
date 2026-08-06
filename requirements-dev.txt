@@ -2,7 +2,7 @@
 -r requirements-test.txt
 
 pre-commit==4.6.0
-mypy==2.1.0
+mypy==2.3.0
 pip-tools==7.5.3
 vulture==2.16
 hatchling==1.31.0
