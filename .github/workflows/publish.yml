@@ -17,14 +17,14 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - uses: actions/checkout@v7
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: "3.11"
           # Issue ref: https://github.com/actions/setup-python/issues/436
           # cache: "pip"
           cache-dependency-path: pyproject.toml
       - name: Restore python cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         id: cache
         with:
           path: ${{ env.pythonLocation }}
@@ -35,7 +35,7 @@ jobs:
       - name: Build distribution
         run: python -m build
       - name: Publish
-        uses: pypa/gh-action-pypi-publish@v1.14.0
+        uses: pypa/gh-action-pypi-publish@v1.14.2
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
