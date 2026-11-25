@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 name = "dayone-to-obsidian"
 description = "Convert a JSON export from Day One into individual notes for Obsidian."
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 license = "MIT"
 authors = [
     { name = "Taras Drapalyuk", email = "taras@drapalyuk.com" },
@@ -27,11 +27,11 @@ classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
 ]
 dependencies = [
     "click>=8.1.7,<9.0.0",
@@ -63,7 +63,7 @@ non_interactive = true
 line-length = 99
 
 [tool.ruff]
-target-version = "py39"
+target-version = "py311"
 line-length = 99
 select = [
     "E", # pycodestyle errors
